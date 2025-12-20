@@ -41,71 +41,75 @@ ocr-nlp-pipeline/
 │   └── nlp_parser.py     # Regex & Text structuring logic
 ├── uploads/              # Temporary storage for processing
 └── README.md             # Project documentation
+```
+## ⚙️ Installation & Setup (Local)
+### Prerequisites:
 
-⚙️ Installation & Setup (Local)
-Prerequisites
 Python 3.8+
 
 Tesseract OCR installed on your system (Guide)
 
-Steps
-Clone the Repository
+### Steps:
 
-Bash
+1. Clone the Repository
 
-git clone [https://github.com/ayushpal1849/ocr-nlp-pipeline.git](https://github.com/ayushpal1849/ocr-nlp-pipeline.git)
+```bash
+git clone https://github.com/ayushpal1849/ocr-nlp-pipeline.git
 cd ocr-nlp-pipeline
-Create Virtual Environment
+```
+2. Create Virtual Environment
 
-Bash
-
+```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
-Install Dependencies
+```
+3. Install Dependencies
 
-Bash
-
+```bash
 pip install -r requirements.txt
-Run the Server
+```
+4. Run the Server
 
-Bash
-
+```bash
 uvicorn app:app --reload
+```
 Server will start at http://127.0.0.1:8000
 
-🐳 Docker Setup (Recommended)
+### 🐳 Docker Setup (Recommended)
+
 To run the application without manual environment setup:
 
-Build the Image
+1. Build the Image
 
-Bash
-
+```bash
 docker build -t ocr-api .
-Run the Container
+```
+2. Run the Container
 
-Bash
-
+```bash
 docker run -p 8000:8000 ocr-api
-🔌 API Usage & Documentation
+```
+## 🔌 API Usage & Documentation
+
 Once the server is running, visit http://127.0.0.1:8000/docs for the interactive Swagger UI.
 
 1. Extract Data Endpoint
-URL: /api/extract
 
-Method: POST
-
-Description: Upload an image to extract structured key-value pairs.
+* **URL:** /api/extract
+* **Method:** POST
+* **Description:** Upload an image to extract structured key-value pairs.
 
 Example Request (cURL)
-Bash
+```bash
 
 curl -X 'POST' \
   '[http://127.0.0.1:8000/api/extract](http://127.0.0.1:8000/api/extract)' \
   -H 'accept: application/json' \
   -H 'Content-Type: multipart/form-data' \
   -F 'file=@invoice_sample.jpg;type=image/jpeg'
+```
 Example JSON Response
-JSON
+```JSON
 
 {
   "status": "success",
@@ -116,10 +120,10 @@ JSON
     "vendor": "Tech Solutions Ltd"
   }
 }
-📊 Performance & Optimization Highlights
-Async/Await: Migrated from synchronous blocking calls to async functions in FastAPI, handling concurrent requests efficiently.
-
-Image Cleanup: Implemented a custom preprocessing pipeline in utils/preprocessing.py that handles skew correction and shadow removal.
+```
+## 📊 Performance & Optimization Highlights
+* **Async/Await:** Migrated from synchronous blocking calls to async functions in FastAPI, handling concurrent requests efficiently.
+* **Image Cleanup:** Implemented a custom preprocessing pipeline in utils/preprocessing.py that handles skew correction and shadow removal.
 
 ## ❓ Troubleshooting
 
@@ -135,7 +139,9 @@ If you encounter **"Unknown compiler"** or **"Microsoft Visual C++ 14.0 is requi
    pip install numpy --only-binary=:all:
    ```
 
-📬 Contact
-Ayush Pal
-LinkedIn: linkedin.com/in/ayush-pal-ap223
-Email: ayushpal1849@gmail.com
+## 📬 Contact
+**Ayush Pal**
+
+**LinkedIn:** [linkedin.com/in/ayush-pal-ap223](https://www.linkedin.com/in/ayush-pal-ap223/)
+
+**Email:** ayushpal1849@gmail.com
