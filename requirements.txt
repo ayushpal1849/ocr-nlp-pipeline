@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+python-multipart
+ultralytics
+pytesseract
+opencv-python
+numpy==2.3.5
+pandas
+pillow
