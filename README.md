@@ -10,6 +10,10 @@ This project is a high-performance **Async REST API** designed to automate the e
 
 By leveraging **FastAPI** for asynchronous processing, **YOLOv8** for intelligent region detection, and **Tesseract OCR** for text extraction, this pipeline eliminates manual data entry and reduces processing time by **~40%**. The system is containerized using **Docker** for easy deployment.
 
+## 📸 Project Demo
+
+![Project Demo](screenshots/swagger_demo.png)
+
 ### 🚀 Key Features
 * **High-Performance Backend:** Built with **FastAPI** & **Uvicorn**, utilizing asynchronous request handling to reduce API latency by **25%**.
 * **Intelligent Detection:** Integrates **YOLOv8** to detect specific document regions (Headers, Tables, Signatures) before extraction.
@@ -121,6 +125,9 @@ Example JSON Response
   }
 }
 ```
+### Sample Output
+![Input vs Output](screenshots/sample_output.png)
+
 ## 📊 Performance & Optimization Highlights
 * **Async/Await:** Migrated from synchronous blocking calls to async functions in FastAPI, handling concurrent requests efficiently.
 * **Image Cleanup:** Implemented a custom preprocessing pipeline in utils/preprocessing.py that handles skew correction and shadow removal.
