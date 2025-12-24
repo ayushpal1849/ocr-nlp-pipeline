@@ -40,7 +40,7 @@ Here you can see the API in action using Swagger UI and a sample extraction resu
 ### 2. Extraction Result (Output)
 <!-- *Left: Original Image | Right: Extracted JSON Data* -->
 
-[Input Output Comparison](screenshots/sample_output.png)
+![Input Output Comparison](screenshots/sample_output.png)
 
 
 ### 🚀 Key Features
