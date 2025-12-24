@@ -10,6 +10,9 @@ This project is a high-performance **Async REST API** designed to automate the e
 
 By leveraging **FastAPI** for asynchronous processing, **YOLOv8** for intelligent region detection, and **Tesseract OCR** for text extraction, this pipeline eliminates manual data entry and reduces processing time by **~40%**. The system is containerized using **Docker** for easy deployment.
 
+## 🏗️ System Architecture
+This diagram illustrates the data flow from the user upload to the final JSON response.
+
 ```mermaid
 graph LR
     A[User / Frontend] -->|Upload Image| B(FastAPI Server)
