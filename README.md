@@ -10,9 +10,35 @@ This project is a high-performance **Async REST API** designed to automate the e
 
 By leveraging **FastAPI** for asynchronous processing, **YOLOv8** for intelligent region detection, and **Tesseract OCR** for text extraction, this pipeline eliminates manual data entry and reduces processing time by **~40%**. The system is containerized using **Docker** for easy deployment.
 
+```mermaid
+graph LR
+    A[User / Frontend] -->|Upload Image| B(FastAPI Server)
+    subgraph "Docker Container"
+    B -->|Raw Image| C[Preprocessing<br/>OpenCV]
+    C -->|Clean Image| D[Object Detection<br/>YOLOv8]
+    D -->|Cropped ROI| E[Text Extraction<br/>Tesseract OCR]
+    E -->|Raw Text| F[Post-Processing<br/>NLP & Regex]
+    end
+    F -->|Structured JSON| B
+    B -->|Final Response| A
+    
+    style B fill:#009688,stroke:#333,stroke-width:2px,color:white
+    style D fill:#ff9800,stroke:#333,stroke-width:2px,color:white
+    style E fill:#f44336,stroke:#333,stroke-width:2px,color:white
+  ```
+
 ## 📸 Project Demo
 
-![Project Demo](screenshots/swagger_demo.png)
+Here you can see the API in action using Swagger UI and a sample extraction result.
+
+### 1. API Interface (Swagger UI)
+![Swagger UI](screenshots/swagger_demo.png)
+
+### 2. Extraction Result (Output)
+<!-- *Left: Original Image | Right: Extracted JSON Data* -->
+
+![Input Output Comparison](screenshots/sample_output.png)
+
 
 ### 🚀 Key Features
 * **High-Performance Backend:** Built with **FastAPI** & **Uvicorn**, utilizing asynchronous request handling to reduce API latency by **25%**.
@@ -47,6 +73,7 @@ ocr-nlp-pipeline/
 └── README.md             # Project documentation
 ```
 ## ⚙️ Installation & Setup (Local)
+
 ### Prerequisites:
 
 Python 3.8+
@@ -125,8 +152,6 @@ Example JSON Response
   }
 }
 ```
-### Sample Output
-![Input vs Output](screenshots/sample_output.png)
 
 ## 📊 Performance & Optimization Highlights
 * **Async/Await:** Migrated from synchronous blocking calls to async functions in FastAPI, handling concurrent requests efficiently.
